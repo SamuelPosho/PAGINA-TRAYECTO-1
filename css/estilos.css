@@ -1,0 +1,298 @@
+/* Estilos básicos mobile-first (archivo en español) */
+:root {
+  --marca: #4a4a4a; /* Gris oscuro profesional */
+  --acento: #d1de3f; /* Amarillo/lima del logo */
+  --fondo: #ffffff;
+  --texto: #222;
+  --muted: #777;
+  --max-ancho: 1100px;
+  --radio: 6px;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin: 0;
+  color: var(--texto);
+  background: var(--fondo);
+  line-height: 1.5;
+}
+.container { max-width: var(--max-ancho); margin: 0 auto; padding: 1rem; }
+.site-header { background: #fff; border-bottom: 1px solid #eee; }
+.site-header .container { display: flex; align-items: center; gap: 1rem; }
+.brand {
+  font-weight: 700;
+  color: var(--marca);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.brand:hover { opacity: 0.8; }
+.logo {
+  height: 60px; /* Ajusta esta altura según el tamaño de tu logo */
+  width: auto;
+  vertical-align: middle; /* Alinea la imagen verticalmente con el texto de la navegación */
+}
+.main-nav {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.main-nav a.active {
+  font-weight: bold;
+  color: var(--marca); /* O el color que uses para resaltar */
+  border-bottom: 2px solid var(--marca);
+}
+
+.main-nav a {
+  color: var(--texto);
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+.main-nav a:hover {
+  color: var(--acento);
+  transform: translateX(5px);
+}
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--acento);
+  transition: width 0.3s ease;
+}
+.main-nav a:hover::after { width: 100%; }
+.hero {
+  padding: 3rem 0;
+  background: linear-gradient(180deg, #f6fbff, #fff);
+  /* Se añade una imagen de fondo con una capa oscura para legibilidad */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../recursos/imagenes/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0; /* Aumentamos el padding para más impacto visual */
+  color: #fff; /* Cambiamos el color del texto a blanco */
+  text-align: center; /* Centramos el contenido */
+  animation: fadeIn 1s ease-out;
+}
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem; /* Hacemos el título más grande */
+  animation: slideInLeft 0.8s ease-out;
+}
+.hero p { animation: slideInRight 0.8s ease-out; }
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px; /* Limitamos el ancho del párrafo para mejor lectura */
+  margin: 0 auto 1.5rem auto; /* Centramos el párrafo */
+  animation: slideInRight 0.8s ease-out; }
+.btn {
+  display: inline-block;
+  background: var(--marca);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radio);
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background: var(--acento);
+  transform: scale(1.05);
+}
+.features {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+.features article {
+  text-align: center;
+  padding: 1rem;
+}
+.feature-icon {
+  margin-bottom: 1rem;
+  width: 48px;
+  height: 48px;
+}
+.features article {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+.features article:nth-child(1) { animation-delay: 0.2s; }
+.features article:nth-child(2) { animation-delay: 0.4s; }
+.features article:nth-child(3) { animation-delay: 0.6s; }
+.about {
+  padding: 2rem 0;
+  animation: fadeIn 1s ease-out;
+}
+.site-footer {
+  border-top: 1px solid #eee;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  animation: fadeIn 1s ease-out;
+}
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.page-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.contact-page form { 
+  max-width: 640px;
+  margin-bottom: 2rem; 
+}
+.contact-page label { display: block; margin-top: 1rem; }
+.contact-page input,
+.contact-page textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radio);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-page input:focus,
+.contact-page textarea:focus {
+  border-color: var(--marca);
+  box-shadow: 0 0 5px rgba(30, 102, 163, 0.3);
+}
+.contact-page .btn {
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.contact-page .btn:hover {
+  background: var(--acento);
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.form-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+}
+.contact-details {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: var(--radio);
+  border: 1px solid #eee;
+}
+.contact-details h2 {
+  margin-top: 0;
+  border-bottom: 2px solid var(--acento);
+  padding-bottom: 0.5rem;
+}
+.map-location iframe {
+  border-radius: var(--radio);
+  margin-top: 1rem;
+}
+
+/* Estilos para la página de servicios */
+.services-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+.service-card {
+  border: 1px solid #eee;
+  border-radius: var(--radio);
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+.services-grid .service-card:nth-child(2) { animation-delay: 0.2s; }
+.services-grid .service-card:nth-child(3) { animation-delay: 0.4s; }
+
+/* Animaciones para la página de contacto */
+.contact-grid form {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.contact-grid .contact-details {
+  animation: fadeInUp 0.6s ease-out 0.2s; /* Se anima un poco después del formulario */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsividad */
+@media (min-width: 700px) {
+  .main-nav {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .main-nav a {
+    padding: 0;
+  }
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .hero {
+    display: flex;
+    align-items: center;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  /* Sobrescribimos las animaciones para escritorio para un efecto lateral */
+  .contact-grid form {
+    animation-name: slideInLeft;
+  }
+  .contact-grid .contact-details {
+    animation-name: slideInRight;
+  }
+}
+
+/* Respetar preferencias de animación reducida */
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .main-nav a,
+  .btn,
+  .contact-page input,
+  .contact-page textarea,
+  .contact-page .btn,
+  .hero,
+  .hero h1,
+  .hero p,
+  .features article,
+  .about,
+  .site-footer {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Helper de accesibilidad */
+:focus { outline: 3px solid #ffd59e; outline-offset: 2px; }
