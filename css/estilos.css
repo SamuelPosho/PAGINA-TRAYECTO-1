@@ -1,4 +1,5 @@
 /* Estilos básicos mobile-first (archivo en español) */
+
 :root {
   --marca: #4a4a4a; /* Gris oscuro profesional */
   --acento: #d1de3f; /* Amarillo/lima del logo */
@@ -17,7 +18,14 @@ body {
   line-height: 1.5;
 }
 .container { max-width: var(--max-ancho); margin: 0 auto; padding: 1rem; }
-.site-header { background: #fff; border-bottom: 1px solid #eee; }
+.site-header {
+  background: rgba(255, 255, 255, 0.9); /* Fondo ligeramente traslúcido */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque para el contenido detrás */
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Asegura que el encabezado esté sobre el resto del contenido */
+}
 .site-header .container { display: flex; align-items: center; gap: 1rem; }
 .brand {
   font-weight: 700;
@@ -31,98 +39,163 @@ body {
   width: auto;
   vertical-align: middle; /* Alinea la imagen verticalmente con el texto de la navegación */
 }
-.main-nav {
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.main-nav a.active {
-  font-weight: bold;
-  color: var(--marca); /* O el color que uses para resaltar */
-  border-bottom: 2px solid var(--marca);
+
+/* Estilos del menú hamburguesa */
+.menu-toggle {
+  display: block; /* Visible por defecto en móvil */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto; /* Empuja el botón a la derecha */
+  z-index: 1001; /* Asegura que esté sobre el menú */
 }
 
-.main-nav a {
-  color: var(--texto);
-  text-decoration: none;
+.menu-toggle .hamburger {
   display: block;
-  padding: 0.5rem;
-  transition: color 0.3s ease, transform 0.3s ease;
+  width: 24px;
+  height: 2px;
+  background: var(--marca);
   position: relative;
+  transition: background-color 0.15s ease-in-out;
 }
-.main-nav a:hover {
-  color: var(--acento);
-  transform: translateX(5px);
-}
-.main-nav a::after {
+
+.menu-toggle .hamburger::before,
+.menu-toggle .hamburger::after {
   content: '';
   position: absolute;
-  width: 0;
+  width: 100%;
   height: 2px;
-  bottom: 0;
+  background: var(--marca);
   left: 0;
-  background-color: var(--acento);
-  transition: width 0.3s ease;
+  transition: transform 0.3s ease;
 }
-.main-nav a:hover::after { width: 100%; }
+
+.menu-toggle .hamburger::before { top: -8px; }
+.menu-toggle .hamburger::after { bottom: -8px; }
+
+/* Ocultar navegación por defecto en móvil */
+.main-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(5px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 1000;
+}
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 1.5rem; /* Letra más grande en el menú móvil */
+}
+.main-nav a.active,
+.main-nav a:hover {
+  color: var(--marca);
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+
+/* Estilos cuando el menú está abierto */
+.nav-open .main-nav {
+  display: flex; /* Mostrar el menú */
+}
+
+.nav-open .menu-toggle .hamburger {
+  background-color: transparent; /* La barra del medio desaparece */
+}
+
+.nav-open .menu-toggle .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-open .menu-toggle .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Ocultar el scroll del body cuando el menú está abierto */
+.nav-open {
+  overflow: hidden;
+}
+
+
 .hero {
-  padding: 3rem 0;
-  background: linear-gradient(180deg, #f6fbff, #fff);
+  padding: 5rem 0; /* Aumentamos el padding para más impacto visual */
   /* Se añade una imagen de fondo con una capa oscura para legibilidad */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../recursos/imagenes/hero-background.jpg');
   background-size: cover;
   background-position: center;
-  padding: 5rem 0; /* Aumentamos el padding para más impacto visual */
-  color: #fff; /* Cambiamos el color del texto a blanco */
+  color: #fff; /* Cambiamos el color del texto a blanco para que sea legible */
   text-align: center; /* Centramos el contenido */
   animation: fadeIn 1s ease-out;
 }
 .hero h1 {
   margin: 0 0 0.5rem;
-  font-size: 2.5rem; /* Hacemos el título más grande */
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Tamaño de fuente adaptable */
   animation: slideInLeft 0.8s ease-out;
 }
-.hero p { animation: slideInRight 0.8s ease-out; }
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.2rem;  
   max-width: 600px; /* Limitamos el ancho del párrafo para mejor lectura */
   margin: 0 auto 1.5rem auto; /* Centramos el párrafo */
-  animation: slideInRight 0.8s ease-out; }
+  animation: slideInRight 0.8s ease-out; 
+}
 .btn {
   display: inline-block;
   background: var(--marca);
   color: #fff;
+  font-weight: 600;
   padding: 0.6rem 1rem;
   border-radius: var(--radio);
+  border: 1px solid var(--marca);
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .btn:hover {
   background: var(--acento);
+  border-color: var(--acento);
   transform: scale(1.05);
 }
 .features {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
+  padding: 3rem 0;
 }
 .features article {
+  /* Estilos combinados para las tarjetas de características */
   text-align: center;
-  padding: 1rem;
-}
-.feature-icon {
-  margin-bottom: 1rem;
-  width: 48px;
-  height: 48px;
-}
-.features article {
+  padding: 1.5rem;
+  border: 1px solid #eee;
+  border-radius: var(--radio);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
 }
 .features article:nth-child(1) { animation-delay: 0.2s; }
 .features article:nth-child(2) { animation-delay: 0.4s; }
 .features article:nth-child(3) { animation-delay: 0.6s; }
+.features article:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.feature-icon {
+  margin-bottom: 1rem;
+  width: 48px;
+  height: 48px;
+}
 .about {
   padding: 2rem 0;
   animation: fadeIn 1s ease-out;
@@ -137,7 +210,9 @@ body {
 .page-header {
   text-align: center;
   margin-bottom: 2rem;
-  animation: fadeInUp 0.6s ease-out;
+  /* Corrección: Añadir opacidad y forwards para que la animación funcione al aparecer */
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
 .page-header h1 {
@@ -168,7 +243,6 @@ body {
 }
 .contact-page .btn:hover {
   background: var(--acento);
-  transform: scale(1.05);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .form-note {
@@ -205,23 +279,36 @@ body {
   text-align: center;
   background-color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Corrección: Añadir opacidad para que la animación funcione al aparecer */
+  opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
 }
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 .services-grid .service-card:nth-child(2) { animation-delay: 0.2s; }
 .services-grid .service-card:nth-child(3) { animation-delay: 0.4s; }
 
 /* Animaciones para la página de contacto */
 .contact-grid form {
-  animation: fadeInUp 0.6s ease-out;
+  /* Corrección: Añadir opacidad y forwards para que la animación funcione al aparecer */
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
 .contact-grid .contact-details {
-  animation: fadeInUp 0.6s ease-out 0.2s; /* Se anima un poco después del formulario */
+  /* Corrección: Añadir opacidad y forwards para que la animación funcione al aparecer */
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s forwards; /* Se anima un poco después del formulario */
 }
+
+/* Animación para la página "Quiénes somos" */
+.about-us-content {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
 
 /* Animaciones */
 @keyframes fadeIn {
@@ -243,12 +330,25 @@ body {
 
 /* Responsividad */
 @media (min-width: 700px) {
+  /* Ocultar el botón de hamburguesa en escritorio */
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Restaurar estilos de navegación para escritorio */
   .main-nav {
+    display: flex;
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    backdrop-filter: none;
+    margin-left: auto;
     flex-direction: row;
     gap: 1rem;
   }
   .main-nav a {
-    padding: 0;
+    font-size: 1rem; /* Restaurar tamaño de fuente */
   }
   .features {
     grid-template-columns: repeat(3, 1fr);
