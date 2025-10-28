@@ -4,9 +4,15 @@ document.addEventListener('DOMContentLoaded', function () {
   
   if (menuToggle && mainNav) {
     menuToggle.addEventListener('click', function () {
-      const isNavOpen = document.body.classList.toggle('nav-open');
-      mainNav.style.display = 'flex'; // Aseguramos que sea visible para la animación
-      // Actualiza el atributo ARIA para accesibilidad
+      const isNavOpen = !document.body.classList.contains('nav-open');
+      if (isNavOpen) {
+        mainNav.style.display = 'flex';
+        requestAnimationFrame(() => {
+          document.body.classList.add('nav-open');
+        });
+      } else {
+        document.body.classList.remove('nav-open');
+      }
       menuToggle.setAttribute('aria-expanded', isNavOpen);
     });
     

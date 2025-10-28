@@ -8,7 +8,7 @@
   <meta property="og:image" content="recursos/imagenes/logo.png">
   <link rel="icon" href="recursos/imagenes/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/estilos.css">
-  
+  <link rel="preload" href="recursos/imagenes/hero-background.jpg" as="image">
 </head>
 <body>
   <header class="site-header">
@@ -19,14 +19,14 @@
           <img src="recursos/imagenes/logo.png" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo" width="164" height="60">
         </picture>
       </a>
-      <nav class="main-nav">
+      <nav id="main-nav" class="main-nav">
         <a href="index.html" class="active">Inicio</a>
         <a href="quienes-somos.html">Quiénes somos</a>
         <a href="servicios.html">Servicios</a>
         <a href="contacto.html">Contacto</a>
         <a href="recursos/manual.pdf" target="_blank" rel="noopener noreferrer">Manual</a>
       </nav>
-      <button class="menu-toggle" aria-label="Abrir menú">
+      <button class="menu-toggle" aria-label="Abrir menú" aria-controls="main-nav" aria-expanded="false">
         <span class="hamburger"></span>
       </button>
     </div>

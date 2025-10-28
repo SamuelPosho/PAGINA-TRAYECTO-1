@@ -3,7 +3,7 @@
 :root {
   --marca: #4a4a4a; /* Gris oscuro profesional */
   --acento: #d1de3f; /* Amarillo/lima del logo */
-  --fondo: #ffffff;
+  --fondo: #f4f4f4; /* Gris claro para el fondo */
   --texto: #222;
   --muted: #777; 
   --max-ancho: 1100px;
@@ -86,9 +86,9 @@ html {
   position: fixed;
   top: 0;
   right: 0;
-  width: 250px; /* Aumentamos el ancho del menú */
-  height: 400px;
-  background: var(--fondo);
+  width: 250px;
+  height: 600%; /* Ocupa toda la altura para ser más robusto */
+  background: #ffffff; /* Mantenemos el menú blanco */
   z-index: 1002;
   padding: 5rem 1rem 2rem;
   box-shadow: -5px 0 15px rgba(0,0,0,0.1);
@@ -204,11 +204,6 @@ html {
   height: auto;
   margin-bottom: 1.5rem;
 }
-.feature-icon {
-  margin-bottom: 1rem;
-  width: 48px;
-  height: 48px;
-}
 .about {
   padding: 2rem 0;
 }
@@ -312,6 +307,39 @@ html {
   border-bottom: 2px solid var(--acento);
   padding-bottom: 0.5rem;
 }
+.social-links {
+  margin-top: 1.5rem;
+}
+.social-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  text-decoration: none;
+  color: var(--muted);
+  transition: all 0.3s ease;
+}
+.social-links a img {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.3s ease;
+}
+.social-links a:hover {
+  background-color: #e9e9e9;
+  border-color: #ddd;
+  transform: scale(1.1);
+}
 .map-location iframe {
   border-radius: var(--radio);
   margin-top: 1rem;
@@ -326,17 +354,25 @@ html {
 .service-card {
   border: 1px solid #eee;
   border-radius: var(--radio);
-  padding: 1.5rem;
-  text-align: center;
   background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   /* Corrección: Añadir opacidad para que la animación funcione al aparecer */
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
+  overflow: hidden; /* Para que la imagen no se salga de los bordes redondeados */
+  display: flex;
+  flex-direction: column;
 }
 .service-card:hover {
   transform: translateY(-8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.service-card h2, .service-card p {
+  padding: 0 1.5rem;
+}
+.service-card p {
+  padding-bottom: 1.5rem;
+  flex-grow: 1;
 }
 .services-grid .service-card:nth-child(2) { animation-delay: 0.2s; }
 .services-grid .service-card:nth-child(3) { animation-delay: 0.4s; }
@@ -355,7 +391,7 @@ html {
 }
 
 /* Animación para la página "Quiénes somos" */
-.about-us-content, .about-content {
+.about-us-content {
   opacity: 0;
   animation: fadeInUp 0.6s ease-out 0.2s forwards;
 }
@@ -420,6 +456,7 @@ html {
     background: none;
     backdrop-filter: none;
     margin-left: auto;
+    box-shadow: none; /* Eliminamos la sombra del menú móvil */
     flex-direction: row;
     gap: 1rem;
     padding: 0; /* Reseteamos el padding del menú móvil */
@@ -429,14 +466,16 @@ html {
   }
   .main-nav a {
     font-size: 1rem;
-    padding: 0.5rem 1rem; /* Restauramos el padding para dar forma de botón */
-    border-radius: var(--radio); /* Restauramos las esquinas redondeadas */
+    padding: 0; /* Eliminamos el padding para que sea solo texto */
+    border-radius: 0;
     color: var(--muted);
     font-weight: normal;
+    background-color: transparent; /* Aseguramos que no tenga fondo */
   }
   .main-nav a.active,
   .main-nav a:hover {
-    background-color: #f0f0f0; /* Restauramos el fondo en hover/active */
+    background-color: transparent; /* Sin fondo al pasar el cursor */
+    color: var(--acento); /* Cambiamos el color del texto a amarillo */
   }
   .features {
     grid-template-columns: repeat(3, 1fr);
@@ -452,10 +491,6 @@ html {
   }
   .services-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-  .hero {
-    display: flex;
-    align-items: center;
   }
   .contact-grid {
     display: grid;
