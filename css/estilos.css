@@ -156,6 +156,13 @@ html {
   margin: 0 auto 1.5rem auto; /* Centramos el párrafo */
   animation: slideInRight 0.8s ease-out; 
 }
+.hero-logo {
+  display: block;
+  margin: 1.5rem auto;
+  max-height: 240px;
+  width: auto;
+  animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
 .btn {
   display: inline-block;
   background: var(--marca);
@@ -355,16 +362,14 @@ html {
   border: 1px solid #eee;
   border-radius: var(--radio);
   background-color: #fff;
-  /* Corrección: Añadir opacidad para que la animación funcione al aparecer */
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
   overflow: hidden; /* Para que la imagen no se salga de los bordes redondeados */
   display: flex;
   flex-direction: column;
+  /* Transición para el efecto hover (elevación y sombra) */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .service-card:hover {
-  transform: translateY(-8px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(-8px); /* Se eleva al pasar el cursor */
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 .service-card h2, .service-card p {
@@ -374,8 +379,9 @@ html {
   padding-bottom: 1.5rem;
   flex-grow: 1;
 }
-.services-grid .service-card:nth-child(2) { animation-delay: 0.2s; }
-.services-grid .service-card:nth-child(3) { animation-delay: 0.4s; }
+/* Añadimos un retraso en la transición para las tarjetas de servicios */
+.services-grid .animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+.services-grid .animate-on-scroll:nth-child(3) { transition-delay: 0.4s; }
 
 /* Animaciones para la página de contacto */
 .contact-grid form {
@@ -405,7 +411,9 @@ html {
 }
 .animate-on-scroll.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0); 
+  /* La transición de entrada se combina con la del hover */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
 }
 /* Añadimos un retraso en la transición para las tarjetas de características */
 .features .animate-on-scroll:nth-child(2) {
