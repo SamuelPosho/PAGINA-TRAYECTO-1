@@ -12,7 +12,12 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="index.html"><img src="recursos/imagenes/logo.png" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo"></a>
+      <a class="brand" href="index.html">
+        <picture>
+          <source srcset="recursos/imagenes/logo.webp" type="image/webp">
+          <img src="recursos/imagenes/logo.png" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo" width="164" height="60">
+        </picture>
+      </a>
       <nav class="main-nav">
         <a href="index.html">Inicio</a>
         <a href="quienes-somos.html">Quiénes somos</a>
@@ -33,20 +38,20 @@
     </div>
 
     <div class="services-grid">
-      <section class="service-card">
-        <img src="recursos/imagenes/icon-consultoria.svg" alt="Icono de consultoría" class="feature-icon">
+      <section id="consultoria" class="service-card">
+        <img src="recursos/imagenes/icon-consultoria.svg" alt="Icono de consultoría" class="feature-icon" loading="lazy" width="48" height="48">
         <h2>Consultoría Estratégica</h2>
         <p>Evaluación de procesos, diagnóstico y recomendaciones para mejorar la eficiencia operativa, optimizar costos y alinear sus recursos con los objetivos de negocio.</p>
       </section>
 
-      <section class="service-card">
-        <img src="recursos/imagenes/icon-tecnologia.svg" alt="Icono de tecnología" class="feature-icon">
+      <section id="tecnologia" class="service-card">
+        <img src="recursos/imagenes/icon-tecnologia.svg" alt="Icono de tecnología" class="feature-icon" loading="lazy" width="48" height="48">
         <h2>Desarrollo y Soporte Tecnológico</h2>
         <p>Desarrollo de aplicaciones a medida, integración de sistemas, modernización de plataformas y soporte técnico continuo para garantizar la operatividad de su infraestructura.</p>
       </section>
 
-      <section class="service-card">
-        <img src="recursos/imagenes/icon-gestion.svg" alt="Icono de gestión de proyectos" class="feature-icon">
+      <section id="gestion" class="service-card">
+        <img src="recursos/imagenes/icon-gestion.svg" alt="Icono de gestión de proyectos" class="feature-icon" loading="lazy" width="48" height="48">
         <h2>Gestión de Proyectos</h2>
         <p>Ofrecemos planificación, ejecución y seguimiento de proyectos con metodologías ágiles y tradicionales. Aseguramos entregables a tiempo y dentro del presupuesto.</p>
       </section>
@@ -55,10 +60,11 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 Venezolana de Soluciones Integrales C.A.</p>
+      <p>&copy; 2025 Venezolana de Soluciones Integrales C.A. Todos los derechos reservados.</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
 </body>
 </html>

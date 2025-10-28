@@ -5,7 +5,7 @@
   --acento: #d1de3f; /* Amarillo/lima del logo */
   --fondo: #ffffff;
   --texto: #222;
-  --muted: #777;
+  --muted: #777; 
   --max-ancho: 1100px;
   --radio: 6px;
 }
@@ -15,7 +15,9 @@ body {
   margin: 0;
   color: var(--texto);
   background: var(--fondo);
-  line-height: 1.5;
+  line-height: 1.5;}
+html {
+  scroll-behavior: smooth; /* Habilita el scroll suave en toda la página */
 }
 .container { max-width: var(--max-ancho); margin: 0 auto; padding: 1rem; }
 .site-header {
@@ -41,14 +43,14 @@ body {
 }
 
 /* Estilos del menú hamburguesa */
-.menu-toggle {
+.menu-toggle { /* Este es el label ahora */
   display: block; /* Visible por defecto en móvil */
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: pointer; 
   padding: 0.5rem;
   margin-left: auto; /* Empuja el botón a la derecha */
-  z-index: 1001; /* Asegura que esté sobre el menú */
+  z-index: 1003; /* Asegura que esté sobre todo */
 }
 
 .menu-toggle .hamburger {
@@ -77,39 +79,42 @@ body {
 /* Ocultar navegación por defecto en móvil */
 .main-nav {
   display: none;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea los botones desde arriba */
+  align-items: stretch; /* Estira los botones para que ocupen todo el ancho */
+  gap: 1rem;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(5px);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  z-index: 1000;
+  right: 0;
+  width: 250px; /* Aumentamos el ancho del menú */
+  height: 400px;
+  background: var(--fondo);
+  z-index: 1002;
+  padding: 5rem 1rem 2rem;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  transform: translateX(100%);
+  overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+  transition: transform 0.4s ease;
 }
 .main-nav a {
   color: var(--muted);
   text-decoration: none;
   display: block;
-  padding: 0.5rem 1rem;
-  border: 1px solid transparent;
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
   border-radius: var(--radio);
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-  font-size: 1.5rem; /* Letra más grande en el menú móvil */
+  width: 100%;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 .main-nav a.active,
 .main-nav a:hover {
   color: var(--marca);
-  background-color: #f5f5f5;
-  border-color: #ddd;
+  background-color: #f0f0f0;
 }
 
-/* Estilos cuando el menú está abierto */
+/* Estilos cuando el menú está abierto (usando JS y la clase .nav-open) */
 .nav-open .main-nav {
-  display: flex; /* Mostrar el menú */
+  transform: translateX(0);
 }
 
 .nav-open .menu-toggle .hamburger {
@@ -175,21 +180,29 @@ body {
 }
 .features article {
   /* Estilos combinados para las tarjetas de características */
-  text-align: center;
-  padding: 1.5rem;
   border: 1px solid #eee;
   border-radius: var(--radio);
   background-color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
+  overflow: hidden; /* Para que la imagen no se salga de los bordes redondeados */
+  display: flex;
+  flex-direction: column;
 }
-.features article:nth-child(1) { animation-delay: 0.2s; }
-.features article:nth-child(2) { animation-delay: 0.4s; }
-.features article:nth-child(3) { animation-delay: 0.6s; }
+.features article h2, .features article p {
+  padding: 0 1.5rem;
+}
+.features article p {
+  padding-bottom: 1.5rem;
+  flex-grow: 1; /* Asegura que el texto empuje el botón hacia abajo si lo hubiera */
+}
 .features article:hover {
   transform: translateY(-8px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.card-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
 }
 .feature-icon {
   margin-bottom: 1rem;
@@ -198,14 +211,52 @@ body {
 }
 .about {
   padding: 2rem 0;
-  animation: fadeIn 1s ease-out;
+}
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radio);
+  margin-top: 1rem;
+}
+.about-text h2 {
+  margin-top: 0;
+}
+
+.clients {
+  padding: 3rem 0;
+  text-align: center;
+}
+.clients-header {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+.client-logos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+.client-logo {
+  padding: 1rem;
+}
+.client-logo img {
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.client-logo img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 .site-footer {
   border-top: 1px solid #eee;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
+  text-align: center;
   font-size: 0.9rem;
   color: var(--muted);
-  animation: fadeIn 1s ease-out;
+  margin-top: 2rem;
 }
 .page-header {
   text-align: center;
@@ -304,13 +355,38 @@ body {
 }
 
 /* Animación para la página "Quiénes somos" */
-.about-us-content {
+.about-us-content, .about-content {
   opacity: 0;
   animation: fadeInUp 0.6s ease-out 0.2s forwards;
 }
 
-
 /* Animaciones */
+/* Estilos para la animación de scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Añadimos un retraso en la transición para las tarjetas de características */
+.features .animate-on-scroll:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.features .animate-on-scroll:nth-child(3) {
+  transition-delay: 0.4s;
+}
+.client-logos .animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+.client-logos .animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+.client-logos .animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+.client-logos .animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+.client-logos .animate-on-scroll:nth-child(5) { transition-delay: 0.5s; }
+.client-logos .animate-on-scroll:nth-child(6) { transition-delay: 0.6s; }
+
+
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -346,11 +422,32 @@ body {
     margin-left: auto;
     flex-direction: row;
     gap: 1rem;
+    padding: 0; /* Reseteamos el padding del menú móvil */
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
   .main-nav a {
-    font-size: 1rem; /* Restaurar tamaño de fuente */
+    font-size: 1rem;
+    padding: 0.5rem 1rem; /* Restauramos el padding para dar forma de botón */
+    border-radius: var(--radio); /* Restauramos las esquinas redondeadas */
+    color: var(--muted);
+    font-weight: normal;
+  }
+  .main-nav a.active,
+  .main-nav a:hover {
+    background-color: #f0f0f0; /* Restauramos el fondo en hover/active */
   }
   .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .client-logos {
     grid-template-columns: repeat(3, 1fr);
   }
   .services-grid {
@@ -388,7 +485,7 @@ body {
   .hero p,
   .features article,
   .about,
-  .site-footer {
+  .site-footer, .animate-on-scroll {
     animation: none;
     transition: none;
   }

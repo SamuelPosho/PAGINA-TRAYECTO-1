@@ -13,7 +13,12 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="index.html"><img src="recursos/imagenes/logo.png" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo"></a>
+      <a class="brand" href="index.html">
+        <picture>
+          <source srcset="recursos/imagenes/logo.webp" type="image/webp">
+          <img src="recursos/imagenes/logo.png" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo" width="164" height="60">
+        </picture>
+      </a>
       <nav class="main-nav">
         <a href="index.html" class="active">Inicio</a>
         <a href="quienes-somos.html">Quiénes somos</a>
@@ -36,37 +41,69 @@
       </div>
     </section>
 
-    <section class="features container">
-      <article>
-        <img src="recursos/imagenes/icon-consultoria.svg" alt="Icono de consultoría" class="feature-icon">
+    <section id="features" class="features container">
+      <article class="animate-on-scroll">
+        <picture>
+          <source srcset="recursos/imagenes/consultoria.webp" type="image/webp">
+          <img src="https://via.placeholder.com/400x250/D1DE3F/4A4A4A?text=Consultor%C3%ADa" alt="Imagen representativa de consultoría" class="card-image" loading="lazy" width="400" height="250">
+        </picture>
         <h2>Consultoría</h2>
         <p>Análisis y estrategias a la medida para optimizar procesos y reducir costos.</p>
       </article>
-      <article>
-        <img src="recursos/imagenes/icon-tecnologia.svg" alt="Icono de tecnología" class="feature-icon">
+      <article class="animate-on-scroll">
+        <picture>
+          <source srcset="recursos/imagenes/tecnologia.webp" type="image/webp">
+          <img src="https://via.placeholder.com/400x250/4A4A4A/FFFFFF?text=Tecnolog%C3%ADa" alt="Imagen representativa de tecnología" class="card-image" loading="lazy" width="400" height="250">
+        </picture>
         <h2>Tecnología</h2>
         <p>Soluciones tecnológicas, desarrollo de software y soporte técnico.</p>
       </article>
-      <article>
-        <img src="recursos/imagenes/icon-gestion.svg" alt="Icono de gestión de proyectos" class="feature-icon">
+      <article class="animate-on-scroll">
+        <picture>
+          <source srcset="recursos/imagenes/gestion.webp" type="image/webp">
+          <img src="https://via.placeholder.com/400x250/F5F5F5/4A4A4A?text=Gesti%C3%B3n" alt="Imagen representativa de gestión de proyectos" class="card-image" loading="lazy" width="400" height="250">
+        </picture>
         <h2>Gestión de Proyectos</h2>
         <p>Planificación, ejecución y control para garantizar resultados exitosos.</p>
       </article>
     </section>
 
     <section class="about container">
-      <h2>Por qué elegirnos</h2>
-      <p>Con un equipo de amplia experiencia en el mercado venezolano y regional, priorizamos la calidad, la transparencia y la entrega de resultados medibles. Nos convertimos en su socio estratégico para el éxito.</p>
+      <div class="about-text animate-on-scroll">
+        <h2>Generando Competencia en el Mercado</h2>
+        <p>Impulsamos a nuestros clientes a la vanguardia de su sector, implementando soluciones innovadoras que no solo optimizan sus operaciones, sino que también redefinen los estándares de la industria.</p>
+      </div>
+      <div class="about-image animate-on-scroll">
+        <picture>
+          <source srcset="recursos/imagenes/equipo.webp" type="image/webp">
+          <img src="https://via.placeholder.com/450x300/4A4A4A/FFFFFF?text=Equipo+Profesional" alt="Nuestro equipo profesional trabajando en una solución." loading="lazy" width="450" height="300">
+        </picture>
+      </div>
+    </section>
+
+    <section class="clients container">
+      <div class="clients-header animate-on-scroll">
+        <h2>Nuestros Clientes Nos Respaldan</h2>
+        <p>La confianza de empresas líderes en diversos sectores es nuestro mayor aval. Estos son algunos de los clientes que han transformado su negocio con nosotros.</p>
+      </div>
+      <div class="client-logos">
+        <div class="client-logo animate-on-scroll"><img src="https://via.placeholder.com/150x80/CCCCCC/FFFFFF?text=Cliente+A" alt="Logo Cliente A" loading="lazy" width="150" height="80"></div>
+        <div class="client-logo animate-on-scroll"><img src="https://via.placeholder.com/150x80/CCCCCC/FFFFFF?text=Cliente+B" alt="Logo Cliente B" loading="lazy" width="150" height="80"></div>
+        <div class="client-logo animate-on-scroll"><img src="https://via.placeholder.com/150x80/CCCCCC/FFFFFF?text=Cliente+C" alt="Logo Cliente C" loading="lazy" width="150" height="80"></div>
+        <div class="client-logo animate-on-scroll"><img src="https://via.placeholder.com/150x80/CCCCCC/FFFFFF?text=Cliente+D" alt="Logo Cliente D" loading="lazy" width="150" height="80"></div>
+        <div class="client-logo animate-on-scroll"><img src="https://via.placeholder.com/150x80/CCCCCC/FFFFFF?text=Cliente+E" alt="Logo Cliente E" loading="lazy" width="150" height="80"></div>
+        <div class="client-logo animate-on-scroll"><img src="https://via.placeholder.com/150x80/CCCCCC/FFFFFF?text=Cliente+F" alt="Logo Cliente F" loading="lazy" width="150" height="80"></div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 Venezolana de Soluciones Integrales C.A.</p>
-      <p><strong>Dirección:</strong> Centro Empresarial Plaza Madrid, Barquisimeto, Lara, Venezuela &middot; <strong>Tel:</strong> +58 212 0000000 &middot; <strong>Correo:</strong> info@venezolanasoluciones.com</p>
+      <p>&copy; 2025 Venezolana de Soluciones Integrales C.A. Todos los derechos reservados.</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
 </body>
 </html>

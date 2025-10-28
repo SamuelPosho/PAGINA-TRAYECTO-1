@@ -12,15 +12,20 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="index.html"><img src="recursos/imagenes/logo.png" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo"></a>
-      <nav class="main-nav">
+      <a class="brand" href="index.html">
+        <picture>
+          <source srcset="recursos/imagenes/logo.webp" type="image/webp">
+          <img src="recursos/imagenes/logo.png" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo" width="164" height="60">
+        </picture>
+      </a>
+      <nav id="main-nav" class="main-nav">
         <a href="index.html">Inicio</a>
         <a href="quienes-somos.html" class="active">Quiénes somos</a>
         <a href="servicios.html">Servicios</a>
         <a href="contacto.html">Contacto</a>
         <a href="recursos/manual.pdf" target="_blank" rel="noopener noreferrer">Manual</a>
       </nav>
-      <button class="menu-toggle" aria-label="Abrir menú">
+      <button class="menu-toggle" aria-label="Abrir menú" aria-controls="main-nav" aria-expanded="false">
         <span class="hamburger"></span>
       </button>
     </div>
@@ -48,10 +53,11 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 Venezolana de Soluciones Integrales C.A.</p>
+      <p>&copy; 2025 Venezolana de Soluciones Integrales C.A. Todos los derechos reservados.</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
 </body>
 </html>
