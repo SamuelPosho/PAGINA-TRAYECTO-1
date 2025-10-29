@@ -18,15 +18,18 @@
           <img src="recursos/imagenes/logo.png" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo" width="164" height="60">
         </picture>
       </a>
-      <nav class="main-nav">
+      <nav id="main-nav" class="main-nav">
         <a href="index.html">Inicio</a>
         <a href="quienes-somos.html">Quiénes somos</a>
         <a href="servicios.html" class="active">Servicios</a>
         <a href="contacto.html">Contacto</a>
         <a href="recursos/manual.pdf" target="_blank" rel="noopener noreferrer">Manual</a>
       </nav>
-      <button class="menu-toggle" aria-label="Abrir menú">
+      <button class="menu-toggle" aria-label="Abrir menú" aria-controls="main-nav" aria-expanded="false">
         <span class="hamburger"></span>
+      </button>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+        <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>
       </button>
     </div>
   </header>
@@ -40,8 +43,8 @@
     <div class="services-grid">
       <section id="consultoria" class="service-card animate-on-scroll">
         <picture>
-          <source srcset="recursos/imagenes/tecnologia.webp" type="image/webp">
-          <img src="https://via.placeholder.com/400x250/4A4A4A/FFFFFF?text=Telemarketing" alt="Imagen representativa de telemarketing estratégico" class="card-image" loading="lazy" width="400" height="250">
+          <source srcset="recursos/imagenes/telemarketing.webp" type="image/webp">
+          <img src="recursos/imagenes/telemarketing.webp" alt="Imagen representativa de telemarketing estratégico" class="card-image" loading="lazy" width="400" height="250">
         </picture>
         <h2>Telemarketing y Externalización de Ventas</h2>
         <p>Como su socio estratégico, nos encargamos de sus procesos de venta. Maximizamos su alcance y rentabilidad a través de campañas de telemarketing efectivas y personalizadas, diseñadas específicamente para el dinámico sector de las telecomunicaciones. Le ayudamos a conectar, convertir y fidelizar clientes.</p>

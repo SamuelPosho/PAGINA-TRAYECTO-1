@@ -444,6 +444,69 @@ html {
   animation: fadeInUp 0.6s ease-out 0.2s forwards;
 }
 
+/* Estilos para la página "Quiénes somos" */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.mission-card, .vision-card {
+  padding: 2rem;
+  border-radius: var(--radio);
+  background-color: var(--superficie);
+  border-left: 5px solid var(--acento);
+}
+.mission-card h3, .vision-card h3 {
+  margin-top: 0;
+  color: var(--marca);
+}
+.dark-mode .mission-card h3, .dark-mode .vision-card h3 {
+  color: var(--acento);
+}
+
+.values-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-title {
+  margin-bottom: 2rem;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.value-card {
+  background-color: var(--superficie);
+  padding: 1.5rem;
+  border-radius: var(--radio);
+  border: 1px solid var(--borde);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px var(--sombra);
+}
+.value-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--marca);
+}
+.value-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Retrasos de animación para los valores */
+.values-grid .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.values-grid .animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.values-grid .animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+
+/* En móvil, la imagen de la historia va primero */
+.history-section .about-image {
+  order: -1;
+}
+
 /* Animaciones */
 /* Estilos para la animación de scroll */
 .animate-on-scroll {
@@ -563,6 +626,16 @@ html {
   }
   .contact-grid .contact-details {
     animation-name: slideInRight;
+  }
+  .mission-vision-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .values-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  /* En escritorio, restauramos el orden por defecto */
+  .history-section .about-image {
+    order: 0;
   }
 }
 
