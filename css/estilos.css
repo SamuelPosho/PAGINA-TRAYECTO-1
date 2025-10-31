@@ -14,16 +14,6 @@
   --radio: 6px;
 }
 
-body.dark-mode {
-  --marca: #f0f0f0;
-  --fondo: #121212;
-  --texto: #e0e0e0;
-  --muted: #999;
-  --superficie: #1e1e1e;
-  --borde: #333;
-  --sombra: rgba(0,0,0,0.4);
-  --header-bg: rgba(30, 30, 30, 0.85);
-}
 * { box-sizing: border-box; }
 body {
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -52,8 +42,8 @@ html {
 }
 .brand:hover { opacity: 0.8; }
 .logo {
-  height: 60px; /* Ajusta esta altura según el tamaño de tu logo */
-  width: auto;
+  height: 48px; /* Ajusta esta altura según el tamaño de tu logo */
+  width: 48px;
   vertical-align: middle; /* Alinea la imagen verticalmente con el texto de la navegación */
 }
 
@@ -99,13 +89,13 @@ html {
   align-items: stretch; /* Estira los botones para que ocupen todo el ancho */
   gap: 1rem;
   position: fixed;
-  top: 0;
+  top: 77px; /* Altura del header para posicionarse debajo */
   right: 0;
-  width: 280px; /* Un poco más de ancho para comodidad */
-  height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+  width: auto;
+  height: auto; /* La altura se ajusta al contenido */
   background: var(--superficie); /* Mantenemos el menú blanco */
   z-index: 1002;
-  padding: 5rem 1rem 2rem;
+  padding: 1rem;
   box-shadow: -5px 0 15px var(--sombra);
   transform: translateX(100%);
   transition: transform 0.4s ease;
@@ -117,15 +107,31 @@ html {
   font-size: 1.2rem;
   padding: 0.8rem 1rem;
   border-radius: var(--radio);
-  width: 100%;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  width: 100%;  
+  /* Animación de entrada para cada enlace */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: color 0.3s ease, background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 .main-nav a.active,
 .main-nav a:hover {
   color: var(--marca);
   background-color: var(--fondo);
 }
-
+.nav-open .main-nav a {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Retraso escalonado para la animación de los enlaces */
+.nav-open .main-nav a:nth-child(1) {
+  transition-delay: 0.15s;
+}
+.nav-open .main-nav a:nth-child(2) {
+  transition-delay: 0.25s;
+}
+.nav-open .main-nav a:nth-child(3) {
+  transition-delay: 0.35s;
+}
 /* Estilos cuando el menú está abierto (usando JS y la clase .nav-open) */
 .nav-open .main-nav {
   display: flex; /* Hacemos visible el menú para que la animación funcione */
@@ -147,29 +153,6 @@ html {
 /* Ocultar el scroll del body cuando el menú está abierto */
 .nav-open {
   overflow: hidden;
-}
-
-/* Estilos del botón de tema */
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  line-height: 1;
-  margin-left: 0.5rem;
-}
-.theme-toggle .icon-moon {
-  display: none;
-}
-.theme-toggle .icon-sun {
-  display: block;
-}
-.dark-mode .theme-toggle .icon-moon {
-  display: block;
-}
-.dark-mode .theme-toggle .icon-sun {
-  display: none;
 }
 
 .hero {
@@ -286,10 +269,6 @@ html {
   opacity: 0.7;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
-.dark-mode .client-logo img {
-  filter: invert(90%) grayscale(100%);
-  opacity: 0.6;
-}
 .client-logo img:hover {
   filter: grayscale(0%);
   opacity: 1;
@@ -297,10 +276,30 @@ html {
 .site-footer {
   border-top: 1px solid var(--borde);
   padding: 1.5rem 0;
-  text-align: center;
   font-size: 0.9rem;
   color: var(--muted);
   margin-top: 2rem;
+}
+.site-footer .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+.footer-links {
+  display: flex;
+}
+.footer-icon-link {
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+.footer-icon-link:hover {
+  color: var(--acento);
 }
 .page-header {
   text-align: center;
@@ -392,6 +391,8 @@ html {
 .map-location iframe {
   border-radius: var(--radio);
   margin-top: 1rem;
+  width: 100%;
+  height: 300px;
 }
 
 /* Estilos para la página de servicios */
@@ -456,13 +457,15 @@ html {
   border-radius: var(--radio);
   background-color: var(--superficie);
   border-left: 5px solid var(--acento);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .mission-card h3, .vision-card h3 {
   margin-top: 0;
   color: var(--marca);
 }
-.dark-mode .mission-card h3, .dark-mode .vision-card h3 {
-  color: var(--acento);
+.mission-card:hover, .vision-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--sombra);
 }
 
 .values-section {
@@ -488,6 +491,19 @@ html {
   transform: translateY(-5px);
   box-shadow: 0 4px 15px var(--sombra);
 }
+.value-icon {
+  margin-bottom: 1rem;
+}
+.value-card:hover .value-icon img {
+  transform: scale(1.1) rotate(5deg);
+}
+.value-icon img {
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 0.5rem;
+  border: 2px solid var(--borde);
+  transition: transform 0.3s ease;
+}
 .value-card h4 {
   margin: 0 0 0.5rem 0;
   color: var(--marca);
@@ -507,12 +523,41 @@ html {
   order: -1;
 }
 
+/* Estilos para la sección de llamada a la acción (CTA) */
+.cta-section {
+  background-color: var(--superficie);
+  border-radius: var(--radio);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+  border: 1px solid var(--borde);
+}
+.cta-content h2 {
+  margin-top: 0;
+  color: var(--marca);
+}
+.cta-content p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+}
+
 /* Animaciones */
 /* Estilos para la animación de scroll */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.animate-left {
+  transform: translateX(-30px);
+}
+.animate-on-scroll.animate-right {
+  transform: translateX(30px);
+}
+.animate-on-scroll.is-visible.animate-left,
+.animate-on-scroll.is-visible.animate-right {
+  opacity: 1;
+  transform: translateX(0);
 }
 .animate-on-scroll.is-visible {
   opacity: 1;
@@ -584,15 +629,15 @@ html {
     color: var(--muted);
     font-weight: normal;
     background-color: transparent; /* Aseguramos que no tenga fondo */
+    /* Restauramos la opacidad y transformación para la vista de escritorio */
+    opacity: 1;
+    transform: none;
+    transition: color 0.3s ease; /* Mantenemos solo la transición de color */
   }
   .main-nav a.active,
   .main-nav a:hover {
     background-color: transparent; /* Sin fondo al pasar el cursor */
     color: var(--acento); /* Cambiamos el color del texto a amarillo */
-  }
-  .dark-mode .client-logo img:hover {
-    filter: none;
-    opacity: 1;
   }
   /* Nos aseguramos de que el overflow:hidden no afecte al escritorio */
   body.nav-open {
@@ -605,6 +650,12 @@ html {
   .about {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
     gap: 2rem;
     align-items: center;
   }
