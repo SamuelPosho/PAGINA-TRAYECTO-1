@@ -161,6 +161,7 @@ html {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../recursos/imagenes/hero-background.jpg');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* Añade el efecto parallax */
   color: #fff; /* Cambiamos el color del texto a blanco para que sea legible */
   text-align: center; /* Centramos el contenido */
   animation: fadeIn 1s ease-out;
@@ -378,14 +379,15 @@ html {
   color: var(--muted);
   transition: all 0.3s ease;
 }
-.social-links a img {
-  width: 20px;
-  height: 20px;
-  transition: filter 0.3s ease;
+.social-links a svg {
+  /* El color del ícono será el mismo que el del texto del enlace */
+  stroke: currentColor;
+  transition: color 0.3s ease;
 }
 .social-links a:hover {
-  background-color: var(--fondo);
-  border-color: var(--borde);
+  /* Al pasar el cursor, el color del enlace (y del ícono) cambiará */
+  color: var(--acento);
+  border-color: var(--acento);
   transform: scale(1.1);
 }
 .map-location iframe {
@@ -523,6 +525,10 @@ html {
   order: -1;
 }
 
+.history-section {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* Estilos para la sección de llamada a la acción (CTA) */
 .cta-section {
   background-color: var(--superficie);
@@ -531,6 +537,7 @@ html {
   text-align: center;
   margin-top: 3rem;
   border: 1px solid var(--borde);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .cta-content h2 {
   margin-top: 0;
@@ -540,6 +547,11 @@ html {
   max-width: 600px;
   margin: 0 auto 1.5rem auto;
 }
+.history-section:hover, .cta-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--sombra);
+}
+
 
 /* Animaciones */
 /* Estilos para la animación de scroll */
