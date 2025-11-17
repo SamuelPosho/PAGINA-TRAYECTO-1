@@ -29,11 +29,9 @@
   --fs-sm:  0.9rem;
   --leading-loose: 1.75;
   --leading-normal: 1.45;
-
   --anim-fast: 180ms;
   --anim-medium: 280ms;
   --anim-slow: 420ms;
-
   --header-height-desktop: 72px;
   --header-height-mobile: 64px;
 }
@@ -550,7 +548,8 @@ html.nav-open {
   grid-template-columns: 1fr;
   gap: 1rem;
 }
-.tarjeta-valor {
+.tarjeta-valor { 
+  border-left: 4px solid var(--acento) !important;
   padding: 1.5rem;
   border-radius: var(--radio);
   border: 1px solid var(--borde);
@@ -582,9 +581,14 @@ html.nav-open {
   margin: 0;
   color: var(--muted);
 }
-.rejilla-valores .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
-.rejilla-valores .animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
-.rejilla-valores .animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+.rejilla-valores .animate-on-scroll:nth-child(2) { 
+  transition-delay: 0.1s; }
+.rejilla-valores .animate-on-scroll:nth-child(3) { 
+  transition-delay: 0.2s; 
+}
+.rejilla-valores .animate-on-scroll:nth-child(4) { 
+  transition-delay: 0.3s; 
+}
 .seccion-historia .acerca-de-imagen {
   order: -1;
 }
@@ -711,20 +715,36 @@ html.nav-open {
   transition-delay: 0.4s;
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
 }
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0; transform: translateY(20px); 
+    }
+  to { 
+    opacity: 1; transform: translateY(0); 
+  }
 }
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+     opacity: 0; transform: translateX(-20px); 
+    }
+  to { 
+    opacity: 1; transform: translateX(0); 
+  }
 }
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from { 
+    opacity: 0; transform: translateX(20px); 
+  }
+  to { 
+    opacity: 1; transform: translateX(0); 
+  }
 }
 
 @media (max-width: 699px) {
@@ -1165,4 +1185,94 @@ body {
 }
 .manual-text > *:first-child {
   margin-top: 0;
+}
+.manual-section {
+      background-color: var(--superficie);
+      border: 1px solid var(--borde);
+      border-left: 4px solid var(--acento);
+      padding: 1.5rem 2rem;
+      border-radius: var(--radio);
+      margin-bottom: 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .manual-section:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-1);
+    }
+    .manual-section {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+    }
+    .manual-section h2 {
+      color: var(--marca);
+      margin-bottom: 1.5rem;
+      margin-top: 0;
+    }
+    .manual-section h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--borde);
+      padding-bottom: 0.5rem;
+    }
+    .manual-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--border-radius);
+      margin-top: 1rem;
+      border: 1px solid var(--borde);
+    }
+
+/* --- Estilos para los ejemplos del manual --- */
+.ejemplo-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  align-items: flex-start;
+}
+.ejemplo-tarjeta {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ejemplo-tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.ejemplo-tarjeta svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
+  color: var(--marca);
+}
+.ejemplo-tarjeta h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+.ejemplo-tarjeta p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+.ejemplo-volver-arriba {
+  position: relative; /* No flotante */
+  display: inline-flex;
+  width: 50px; height: 50px;
+  background-color: var(--marca);
+  color: white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
 }

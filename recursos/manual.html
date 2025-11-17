@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Manual del Sitio — Venezolana De Soluciones Integrales (VSI)</title>
+  <meta name="description" content="Manual de usuario y guía de componentes del sitio web de Venezolana de Soluciones Integrales C.A.">
+  <meta name="author" content="Samuel Loyo">
+  <link rel="icon" href="imagenes/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">
+        <img src="imagenes/favicon.ico" alt="Logo de Venezolana de Soluciones Integrales C.A." class="logo">
+      </a>
+      <nav id="main-nav" class="main-nav">
+        <a href="../index.html">Inicio</a>
+        <a href="../conocenos.html">Conócenos</a>
+        <a href="../contacto.html">Contacto</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-controls="main-nav" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="encabezado-pagina">
+      <h1>Manual del Sitio Web</h1>
+      <p>Guía sobre los elementos, animaciones, navegación y SEO del sitio.</p>
+    </div>
+
+    <section id="seo" class="manual-section">
+      <h2>1. Optimización para Motores de Búsqueda (SEO)</h2>
+      <p>Para mejorar la visibilidad del sitio en buscadores como Google, se han implementado las siguientes técnicas de SEO:</p>
+      <ul>
+        <li>
+          <strong>Metaetiquetas Estratégicas:</strong> Cada página cuenta con:
+          <ul>
+            <li><code>&lt;title&gt;</code>: Títulos únicos y descriptivos.</li>
+            <li><code>&lt;meta name="description"&gt;</code>: Resúmenes concisos del contenido.</li>
+            <li><code>&lt;meta property="og:image"&gt;</code>: Imágenes de vista previa para redes sociales.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Indexación y Rastreo:</strong>
+          <ul>
+            <li><strong><code>robots.txt</code>:</strong> Permite a los buscadores indexar todo el sitio y les indica la ubicación del mapa del sitio.</li>
+            <li><strong><code>sitemap.xml</code>:</strong> Lista todas las páginas importantes para asegurar que los motores de búsqueda las encuentren y rastreen eficientemente.</li>
+          </ul>
+          <img src="imagenes/ejemplo-sitemap.png" alt="Contenido del archivo sitemap.xml">
+        </li>
+        <li>
+          <strong>Contenido Semántico y Accesible:</strong>
+          <ul>
+            <li>Se utiliza HTML semántico (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>) para estructurar el contenido, beneficiando tanto al SEO como a la accesibilidad.</li>
+            <li>Todas las imágenes incluyen el atributo <code>alt</code> con texto alternativo para describir su contenido a lectores de pantalla y motores de búsqueda.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    
+    <section id="elementos" class="manual-section">
+      <h2>2. Elementos y Tarjetas de Información</h2>
+      <p>El sitio se basa en un sistema de tarjetas para presentar la información de forma modular y atractiva:</p>
+      <ul>
+      </ul>
+      <h3>Tarjetas de Características y Valores</h3>
+      <p>Se usan en "Inicio" y "Conócenos" para destacar los puntos fuertes de la empresa. Combinan un ícono, un título y una descripción. Tienen una animación sutil al pasar el cursor para indicar interactividad.</p>
+      <div class="ejemplo-container">
+        <div class="ejemplo-tarjeta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <h4>Seguridad</h4>
+          <p>Protegemos tus datos con los más altos estándares.</p>
+        </div>
+        <div class="ejemplo-tarjeta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <h4>Soporte 24/7</h4>
+          <p>Nuestro equipo está disponible para ayudarte siempre.</p>
+        </div>
+      </div>
+
+      <h3>Tarjetas de Horarios</h3>
+      <p>Ubicadas en "Contacto", organizan el horario de atención de forma clara y fácil de consultar. Su diseño es más simple y directo.</p>
+      <div class="ejemplo-container">
+        <div class="ejemplo-tarjeta" style="box-shadow: 0 2px 6px rgba(0,0,0,0.05); transform: none;">
+          <h4>Lunes a Viernes</h4>
+          <p>8:00 AM — 5:00 PM</p>
+        </div>
+      </div>
+
+      <h3>Tarjetas Expandibles</h3>
+      <p>En la página de inicio, las tarjetas de características son interactivas. Al hacer clic, se expanden para mostrar una descripción detallada. <em>(Este es un ejemplo visual estático)</em>.</p>
+      <img src="imagenes/ejemplo-tarjeta-expandible.png" alt="Ejemplo de una tarjeta expandible en la página de inicio">
+    </section>
+
+    <section id="animaciones" class="manual-section">
+      <h2>3. Animaciones</h2>
+      <p>El sitio incorpora animaciones sutiles para guiar la atención del usuario y mejorar la experiencia de navegación:</p>
+      <ul>
+        <li>
+          <strong>Animación al Desplazar (Scroll):</strong> Los elementos aparecen gradualmente a medida que el usuario explora la página.
+          <ul>
+            <li>La clase <code>.animate-on-scroll</code> activa la animación.</li>
+            <li>Por defecto, los elementos aparecen desde abajo (efecto <em>Fade In Up</em>).</li>
+            <li>Las clases <code>.animate-left</code> y <code>.animate-right</code> controlan la aparición desde los costados.</li>
+          </ul>
+        </li>
+        <li><strong>Objetivo:</strong> Presentar el contenido de forma progresiva para crear una experiencia de descubrimiento agradable y evitar sobrecargar al usuario.</li>
+      </ul>
+      <img src="imagenes/ejemplo-animacion.png" alt="Ejemplo de animación de entrada en una sección">
+    </section>
+
+    <section id="navegacion" class="manual-section">
+      <h2>4. Navegación del Sitio</h2>
+      <p>La estructura de navegación está diseñada para ser intuitiva y accesible en todos los dispositivos:</p>
+      <ul>
+        <li><strong>Menú Principal:</strong> Contiene los enlaces clave (Inicio, Conócenos, Contacto). En dispositivos móviles, se convierte en un menú "hamburguesa" para optimizar el espacio.</li>
+        <li><strong>Pie de Página:</strong> Funciona como un centro de navegación secundario, con enlaces a redes sociales, datos de contacto y este manual.</li>
+      </ul>
+      <h3>Botón "Volver Arriba"</h3>
+      <p>Un botón flotante que aparece al hacer scroll, permitiendo al usuario regresar al inicio de la página con un solo clic. Es circular, con un ícono claro y un color de fondo que contrasta con el contenido.</p>
+      <div class="ejemplo-container">
+        <a href="#" onclick="event.preventDefault();" class="ejemplo-volver-arriba" aria-label="Ejemplo de Volver arriba">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copyright">&copy; 2025 Venezolana de Soluciones Integrales 2023 C.A. <br> (RIF: J-50330963-6). Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="#" id="back-to-top" class="volver-arriba" aria-label="Volver arriba" title="Volver arriba">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/scroll.js"></script>
+</body>
+</html>
