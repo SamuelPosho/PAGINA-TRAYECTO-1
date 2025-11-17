@@ -286,22 +286,23 @@ html.nav-open {
   background-color: var(--superficie);
   border-bottom: 4px solid var(--acento);
   transition: transform var(--anim-medium) ease, box-shadow var(--anim-medium) ease;
-}.caracteristicas article.is-expanded {
+}
+.caracteristica-card.is-expanded {
   transform: translateY(-8px);
   box-shadow: var(--shadow-1);
 }
-.caracteristicas article h2 {
+.caracteristica-card h2 {
   padding: 0 1.5rem;
   margin-top: 1rem; 
   margin-bottom: 0.5rem; 
 }
-.caracteristicas article .caracteristica-card-description {
+.caracteristica-card-description {
   max-height: 0; 
   overflow: hidden;
   padding: 0 1.5rem; 
   transition: max-height var(--anim-medium) ease-out, padding-bottom var(--anim-medium) ease-out;
 }
-.caracteristicas article.is-expanded .caracteristica-card-description {
+.caracteristica-card.is-expanded .caracteristica-card-description {
   max-height: 200px;
   padding-bottom: 1.5rem;
 }
@@ -1190,23 +1191,10 @@ body {
       background-color: var(--superficie);
       border: 1px solid var(--borde);
       border-left: 4px solid var(--acento);
-      padding: 1.5rem 2rem;
+      padding: 1.5rem;
       border-radius: var(--radio);
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .manual-section:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-1);
-    }
-    .manual-section {
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-    }
-    .manual-section h2 {
-      color: var(--marca);
-      margin-bottom: 1.5rem;
-      margin-top: 0;
     }
     .manual-section h3 {
       margin-top: 1.5rem;
@@ -1214,57 +1202,36 @@ body {
       border-bottom: 2px solid var(--borde);
       padding-bottom: 0.5rem;
     }
-    .manual-section img {
-      max-width: 100%;
-      height: auto;
-      border-radius: var(--border-radius);
-      margin-top: 1rem;
-      border: 1px solid var(--borde);
-    }
-
-/* --- Estilos para los ejemplos del manual --- */
+.manual-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radio);
+  margin-top: 1rem;
+}
+.manual-section-part {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  align-items: start;
+}
+.manual-section-part .manual-text {
+  flex-grow: 1;
+}
+.manual-text > *:first-child {
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  .manual-section-part {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
 .ejemplo-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  align-items: flex-start;
-}
-.ejemplo-tarjeta {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 20px;
-  text-align: center;
-  flex: 1;
-  min-width: 200px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.ejemplo-tarjeta:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-.ejemplo-tarjeta svg {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 15px;
-  color: var(--marca);
-}
-.ejemplo-tarjeta h4 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-.ejemplo-tarjeta p {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
 }
 .ejemplo-volver-arriba {
   position: relative; /* No flotante */
@@ -1276,3 +1243,251 @@ body {
   align-items: center;
   justify-content: center;
 }
+.ejemplo-animacion-bloque {
+  padding: 2rem;
+  margin-bottom: 1rem;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  border: 1px solid #dce6f0;
+  text-align: center;
+}
+
+/* Estilos para el ejemplo de animación en bucle */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+}
+
+.ejemplo-animacion-loop {
+  /* Aplica la animación 'pulse' en un bucle infinito que dura 2.5 segundos */
+  animation: pulse 2.5s infinite ease-in-out;
+}
+.ejemplo-volver-arriba {
+  position: relative;
+  display: inline-flex;
+  width: 60px; height: 60px;
+  background-color: var(--marca);
+  color: white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.ejemplo-codigo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.ejemplo-codigo {
+  background-color: #2d2d2d;
+  color: #f1f1f1;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--acento);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ejemplo-codigo:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-1);
+}
+.ejemplo-codigo pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.ejemplo-codigo .tag {
+  color: #e8bf6a;
+}
+.ejemplo-codigo .attr {
+  color: #9cdcfe;
+}
+.ejemplo-codigo .val {
+  color: #ce9178;
+}
+.ejemplo-descripcion {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 0;
+}
+.ejemplo-menu-funcional {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--superficie);
+  width: 100%;
+  max-width: 320px;
+  overflow: hidden;
+}
+.ejemplo-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--fondo);
+  padding: 0.75rem 1rem;
+}
+.ejemplo-menu-brand {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+.ejemplo-menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ejemplo-menu-toggle .hamburger,
+.ejemplo-menu-toggle .hamburger::before,
+.ejemplo-menu-toggle .hamburger::after {
+  background-color: var(--marca);
+  display: block;
+  width: 24px;
+  height: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.ejemplo-menu-toggle .hamburger::before,
+.ejemplo-menu-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+}
+.ejemplo-menu-toggle .hamburger::before { top: -8px; }
+.ejemplo-menu-toggle .hamburger::after { bottom: -8px; }
+.ejemplo-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  max-height: 0;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+.ejemplo-menu {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1rem;
+  background-color: var(--superficie);
+  flex-grow: 1;
+}
+.ejemplo-menu h5 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 0.5rem;
+}
+.ejemplo-menu-desktop nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.ejemplo-menu-desktop a {
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  position: relative;
+}
+.ejemplo-menu-desktop a.active,
+.ejemplo-menu-desktop a:hover {
+  color: var(--acento);
+}
+.ejemplo-menu-desktop a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--acento);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.ejemplo-menu-desktop a:hover::after,
+.ejemplo-menu-desktop a.active::after {
+  transform: scaleX(1);
+}
+.ejemplo-menu-movil {
+  padding: 0;
+  overflow: hidden;
+  max-width: 320px;
+}
+.ejemplo-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--fondo);
+  border-bottom: 1px solid var(--borde);
+}
+.ejemplo-menu-brand {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+.ejemplo-menu-toggle {
+  background: none; border: none; cursor: pointer; padding: 0.5rem;
+}
+.ejemplo-menu-toggle .hamburger,
+.ejemplo-menu-toggle .hamburger::before,
+.ejemplo-menu-toggle .hamburger::after {
+  background-color: var(--marca);
+  display: block;
+  width: 24px;
+  height: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.ejemplo-menu-toggle .hamburger::before,
+.ejemplo-menu-toggle .hamburger::after {
+  content: ''; position: absolute;
+}
+.ejemplo-menu-toggle .hamburger::before { top: -8px; }
+.ejemplo-menu-toggle .hamburger::after { bottom: -8px; }
+.ejemplo-menu-nav {
+  padding: 0.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+.ejemplo-menu-nav ul {
+  list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;
+}
+.ejemplo-menu-movil.is-open .ejemplo-menu-nav {
+  max-height: 200px;
+}
+.ejemplo-menu-movil.is-open .hamburger { background-color: transparent; }
+.ejemplo-menu-movil.is-open .hamburger::before { transform: translateY(8px) rotate(45deg); }
+.ejemplo-menu-movil.is-open .hamburger::after { transform: translateY(-8px) rotate(-45deg); }
+.ejemplo-menu-nav a {
+  font-family: var(--font-heading);
+  color: var(--muted);
+  text-decoration: none;
+  display: block;
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.ejemplo-menu-nav a:hover {
+  color: var(--marca);
+  background-color: var(--fondo);
+}
+.ejemplo-menu-funcional.is-open .ejemplo-menu-nav {
+  max-height: 200px;
+  padding: 0.5rem;
+}
+.ejemplo-menu-funcional.is-open .hamburger { background-color: transparent; }
+.ejemplo-menu-funcional.is-open .hamburger::before { transform: translateY(8px) rotate(45deg); }
+.ejemplo-menu-funcional.is-open .hamburger::after { transform: translateY(-8px) rotate(-45deg); }

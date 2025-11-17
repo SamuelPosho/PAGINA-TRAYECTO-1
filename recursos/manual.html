@@ -37,32 +37,39 @@
 
     <section id="seo" class="manual-section">
       <h2>1. Optimización para Motores de Búsqueda (SEO)</h2>
-      <p>Para mejorar la visibilidad del sitio en buscadores como Google, se han implementado las siguientes técnicas de SEO:</p>
-      <ul>
-        <li>
-          <strong>Metaetiquetas Estratégicas:</strong> Cada página cuenta con:
+      <div class="manual-section-part">
+        <div class="manual-text">
+          <p>Para mejorar la visibilidad del sitio en buscadores como Google, se han implementado las siguientes técnicas de SEO:</p>
           <ul>
-            <li><code>&lt;title&gt;</code>: Títulos únicos y descriptivos.</li>
-            <li><code>&lt;meta name="description"&gt;</code>: Resúmenes concisos del contenido.</li>
-            <li><code>&lt;meta property="og:image"&gt;</code>: Imágenes de vista previa para redes sociales.</li>
+            <li>
+              <strong>Metaetiquetas Estratégicas:</strong> Cada página cuenta con títulos, descripciones e imágenes de vista previa para redes sociales.</li>
+            <li>
+              <strong>Indexación y Rastreo:</strong> Se utilizan los archivos <code>robots.txt</code> y <code>sitemap.xml</code> para guiar a los motores de búsqueda.</li>
+            <li>
+              <strong>Contenido Semántico y Accesible:</strong> El uso de HTML semántico y atributos <code>alt</code> en las imágenes beneficia tanto al SEO como a la accesibilidad.</li>
           </ul>
-        </li>
-        <li>
-          <strong>Indexación y Rastreo:</strong>
-          <ul>
-            <li><strong><code>robots.txt</code>:</strong> Permite a los buscadores indexar todo el sitio y les indica la ubicación del mapa del sitio.</li>
-            <li><strong><code>sitemap.xml</code>:</strong> Lista todas las páginas importantes para asegurar que los motores de búsqueda las encuentren y rastreen eficientemente.</li>
-          </ul>
-          <img src="imagenes/ejemplo-sitemap.png" alt="Contenido del archivo sitemap.xml">
-        </li>
-        <li>
-          <strong>Contenido Semántico y Accesible:</strong>
-          <ul>
-            <li>Se utiliza HTML semántico (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>) para estructurar el contenido, beneficiando tanto al SEO como a la accesibilidad.</li>
-            <li>Todas las imágenes incluyen el atributo <code>alt</code> con texto alternativo para describir su contenido a lectores de pantalla y motores de búsqueda.</li>
-          </ul>
-        </li>
-      </ul>
+        </div>
+        <div class="ejemplo-container">
+          <p class="ejemplo-descripcion">Ejemplos de las metaetiquetas más importantes. Pasa el cursor sobre ellas.</p>
+          <div class="ejemplo-codigo-container">
+            <div class="ejemplo-codigo">
+              <pre><code><span class="tag">&lt;meta</span> <span class="attr">charset=</span><span class="val">"utf-8"</span><span class="tag">&gt;</span></code></pre>
+            </div>
+            <div class="ejemplo-codigo">
+              <pre><code><span class="tag">&lt;meta</span> <span class="attr">name=</span><span class="val">"viewport"</span> <span class="attr">content=</span><span class="val">"..."</span><span class="tag">&gt;</span></code></pre>
+            </div>
+            <div class="ejemplo-codigo">
+              <pre><code><span class="tag">&lt;title&gt;</span>Conócenos — VSI<span class="tag">&lt;/title&gt;</span></code></pre>
+            </div>
+            <div class="ejemplo-codigo">
+              <pre><code><span class="tag">&lt;meta</span> <span class="attr">name=</span><span class="val">"description"</span> <span class="attr">content=</span><span class="val">"..."</span><span class="tag">&gt;</span></code></pre>
+            </div>
+            <div class="ejemplo-codigo">
+              <pre><code><span class="tag">&lt;link</span> <span class="attr">rel=</span><span class="val">"icon"</span> <span class="attr">href=</span><span class="val">"favicon.ico"</span><span class="tag">&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     
     <section id="elementos" class="manual-section">
@@ -70,65 +77,145 @@
       <p>El sitio se basa en un sistema de tarjetas para presentar la información de forma modular y atractiva:</p>
       <ul>
       </ul>
-      <h3>Tarjetas de Características y Valores</h3>
-      <p>Se usan en "Inicio" y "Conócenos" para destacar los puntos fuertes de la empresa. Combinan un ícono, un título y una descripción. Tienen una animación sutil al pasar el cursor para indicar interactividad.</p>
-      <div class="ejemplo-container">
-        <div class="ejemplo-tarjeta">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          <h4>Seguridad</h4>
-          <p>Protegemos tus datos con los más altos estándares.</p>
+      <div class="manual-section-part">
+        <div class="manual-text">
+          <h3>Tarjetas de Características y Valores</h3>
+          <p>Se usan en "Inicio" y "Conócenos" para destacar los puntos fuertes de la empresa. Combinan un ícono, un título y una descripción. Tienen una animación sutil al pasar el cursor para indicar interactividad.</p>
         </div>
-        <div class="ejemplo-tarjeta">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          <h4>Soporte 24/7</h4>
-          <p>Nuestro equipo está disponible para ayudarte siempre.</p>
-        </div>
-      </div>
-
-      <h3>Tarjetas de Horarios</h3>
-      <p>Ubicadas en "Contacto", organizan el horario de atención de forma clara y fácil de consultar. Su diseño es más simple y directo.</p>
-      <div class="ejemplo-container">
-        <div class="ejemplo-tarjeta" style="box-shadow: 0 2px 6px rgba(0,0,0,0.05); transform: none;">
-          <h4>Lunes a Viernes</h4>
-          <p>8:00 AM — 5:00 PM</p>
+        <div class="ejemplo-container">
+          <div class="tarjeta-valor">
+            <div class="icono-valor"><img src="https://cdn-icons-png.flaticon.com/512/7178/7178922.png" alt="Icono de Compromiso" width="64" height="64"></div>
+            <h4>Compromiso</h4>
+            <p>El éxito de nuestros clientes es nuestro éxito.</p>
+          </div>
+          <div class="tarjeta-valor">
+            <div class="icono-valor"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8gHkDaD9teWOvCy5gbPB94hvpeEqn7UTjqw&s" alt="Icono de Excelencia" width="64" height="64"></div>
+            <h4>Seguridad</h4>
+            <p>Protegemos tus datos con los más altos estándares.</p>
+          </div>
         </div>
       </div>
-
-      <h3>Tarjetas Expandibles</h3>
-      <p>En la página de inicio, las tarjetas de características son interactivas. Al hacer clic, se expanden para mostrar una descripción detallada. <em>(Este es un ejemplo visual estático)</em>.</p>
-      <img src="imagenes/ejemplo-tarjeta-expandible.png" alt="Ejemplo de una tarjeta expandible en la página de inicio">
+      <div class="manual-section-part">
+        <div class="manual-text">
+          <h3>Tarjetas de Horarios</h3>
+          <p>Ubicadas en "Contacto", organizan el horario de atención de forma clara y fácil de consultar. Su diseño es más simple y directo.</p>
+        </div>
+        <div class="ejemplo-container">
+          <div class="tarjeta-horario">
+            <div class="horario-icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+            <h3>Lunes a Viernes</h3>
+            <p>8:00 AM — 5:00 PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="manual-section-part">
+        <div class="manual-text">
+          <h3>Tarjetas Expandibles</h3>
+          <p>En la página de inicio, las tarjetas de características son interactivas. Al hacer clic, se expanden para mostrar una descripción detallada. La funcionalidad es controlada por JavaScript.</p>
+        </div>
+        <div class="ejemplo-container caracteristicas">
+          <article class="caracteristica-card" tabindex="0">
+            <picture>
+              <img src="imagenes/telemarketing.webp" alt="Imagen representativa de telemarketing" class="tarjeta-imagen" loading="lazy" width="400" height="250">
+            </picture>
+            <h2>Haz Clic para Expandir</h2>
+            <div class="caracteristica-card-description">
+              <p>Este es el texto que aparece cuando la tarjeta se expande. La funcionalidad es controlada por JavaScript, que añade la clase <code>.is-expanded</code> al hacer clic.</p>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section id="animaciones" class="manual-section">
       <h2>3. Animaciones</h2>
-      <p>El sitio incorpora animaciones sutiles para guiar la atención del usuario y mejorar la experiencia de navegación:</p>
-      <ul>
-        <li>
-          <strong>Animación al Desplazar (Scroll):</strong> Los elementos aparecen gradualmente a medida que el usuario explora la página.
+      <div class="manual-section-part">
+        <div class="manual-text">
+          <p>El sitio incorpora animaciones sutiles para guiar la atención del usuario y mejorar la experiencia de navegación:</p>
           <ul>
-            <li>La clase <code>.animate-on-scroll</code> activa la animación.</li>
-            <li>Por defecto, los elementos aparecen desde abajo (efecto <em>Fade In Up</em>).</li>
-            <li>Las clases <code>.animate-left</code> y <code>.animate-right</code> controlan la aparición desde los costados.</li>
+            <li>
+              <strong>Animación al Desplazar (Scroll):</strong> Los elementos aparecen gradualmente a medida que el usuario explora la página.
+              <ul>
+                <li>La clase <code>.animate-on-scroll</code> activa la animación.</li>
+                <li>Por defecto, los elementos aparecen desde abajo (efecto <em>Fade In Up</em>).</li>
+                <li>Las clases <code>.animate-left</code> y <code>.animate-right</code> controlan la aparición desde los costados.</li>
+              </ul>
+            </li>
+            <li><strong>Objetivo:</strong> Presentar el contenido de forma progresiva para crear una experiencia de descubrimiento agradable y evitar sobrecargar al usuario.</li>
           </ul>
-        </li>
-        <li><strong>Objetivo:</strong> Presentar el contenido de forma progresiva para crear una experiencia de descubrimiento agradable y evitar sobrecargar al usuario.</li>
-      </ul>
-      <img src="imagenes/ejemplo-animacion.png" alt="Ejemplo de animación de entrada en una sección">
+        </div>
+        <div class="ejemplo-container">
+          <div class="ejemplo-tarjeta animate-on-scroll">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <h4>Animación Inferior</h4>
+            <p>Esta tarjeta aparece desde abajo al hacer scroll.</p>
+          </div>
+          <div class="ejemplo-tarjeta animate-on-scroll animate-left">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <h4>Animación Izquierda</h4>
+            <p>Esta tarjeta aparece desde la izquierda al hacer scroll.</p>
+          </div>
+          <div class="ejemplo-tarjeta animate-on-scroll animate-right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <h4>Animación Derecha</h4>
+            <p>Esta tarjeta aparece desde la derecha al hacer scroll.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="navegacion" class="manual-section">
       <h2>4. Navegación del Sitio</h2>
-      <p>La estructura de navegación está diseñada para ser intuitiva y accesible en todos los dispositivos:</p>
-      <ul>
-        <li><strong>Menú Principal:</strong> Contiene los enlaces clave (Inicio, Conócenos, Contacto). En dispositivos móviles, se convierte en un menú "hamburguesa" para optimizar el espacio.</li>
-        <li><strong>Pie de Página:</strong> Funciona como un centro de navegación secundario, con enlaces a redes sociales, datos de contacto y este manual.</li>
-      </ul>
-      <h3>Botón "Volver Arriba"</h3>
-      <p>Un botón flotante que aparece al hacer scroll, permitiendo al usuario regresar al inicio de la página con un solo clic. Es circular, con un ícono claro y un color de fondo que contrasta con el contenido.</p>
-      <div class="ejemplo-container">
-        <a href="#" onclick="event.preventDefault();" class="ejemplo-volver-arriba" aria-label="Ejemplo de Volver arriba">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-        </a>
+      <div class="manual-section-part">
+        <div class="manual-text">
+          <p>La navegación está diseñada para ser intuitiva y accesible. Se adapta automáticamente al tamaño del dispositivo.</p>
+          <h3>Menú Principal</h3>
+          <ul>
+            <li><strong>Menú de Escritorio:</strong> En pantallas grandes (más de 700px), el menú es una barra horizontal siempre visible, permitiendo un acceso rápido a las secciones principales.</li>
+            <li><strong>Menú Móvil:</strong> En dispositivos móviles, el menú se colapsa en un icono de "hamburguesa". Al tocarlo, se despliega una lista vertical con las opciones de navegación, optimizando el espacio en pantalla.</li>
+            <li><strong>Pie de Página:</strong> Funciona como un centro de navegación secundario, con enlaces a redes sociales, datos de contacto y este manual.</li>
+          </ul>
+        </div>
+        <div class="ejemplo-container ejemplo-container-centrado">
+          <h5>Ejemplo: Menú de Escritorio</h5>
+          <p>Así se visualiza el menú en pantallas grandes, con una barra de navegación horizontal.</p>
+          <div class="ejemplo-menu ejemplo-menu-desktop">
+            <nav>
+              <a href="#" onclick="return false;">Inicio</a>
+              <a href="#" onclick="return false;" class="active">Conócenos</a>
+              <a href="#" onclick="return false;">Contacto</a>
+            </nav>
+          </div>
+          <h5>Ejemplo: Menú Móvil Funcional</h5>
+          <p>En dispositivos móviles, el menú se contrae. Haz clic en el icono para ver cómo se despliega.</p>
+          <div id="ejemplo-menu-funcional" class="ejemplo-menu-movil">
+            <div class="ejemplo-menu-header">
+              <span class="ejemplo-menu-brand">Menú Móvil</span>
+              <button class="ejemplo-menu-toggle" aria-label="Abrir menú de ejemplo">
+                <span class="hamburger"></span>
+              </button>
+            </div>
+            <nav class="ejemplo-menu-nav">
+              <ul>
+                  <a href="#" onclick="return false;">Inicio</a>
+                  <a href="#" onclick="return false;">Conócenos</a>
+                  <a href="#" onclick="return false;">Contacto</a>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="manual-section-part">
+        <div class="manual-text">
+          <h3>Botón "Volver Arriba"</h3>
+          <p>Un botón flotante que aparece al hacer scroll, permitiendo al usuario regresar al inicio de la página con un solo clic. Es circular, con un ícono claro y un color de fondo que contrasta con el contenido.</p>
+          <p>A continuación se muestra un ejemplo visual del botón.</p>
+        </div>
+        <div class="ejemplo-container ejemplo-container-centrado">
+          <a href="#" onclick="event.preventDefault();" class="ejemplo-volver-arriba" aria-label="Ejemplo de Volver arriba">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -146,5 +233,6 @@
 
   <script src="../js/main.js"></script>
   <script src="../js/scroll.js"></script>
+  <script src="manual.js"></script>
 </body>
 </html>

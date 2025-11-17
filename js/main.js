@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Implementamos un menu que se activa en dispositivos móviles.
+  // ==========================================================================
+  // Lógica para el menú principal del sitio
+  // ==========================================================================
   const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.querySelector('.main-nav');
   if (menuToggle && mainNav) {
-    // Al hacer clic en el botón, se va cambiando una clase para mostrar y ocultar el menú.
     menuToggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('nav-open');
-      // Actualizamos el atributo aria-expanded para mejorar el acceso
       const isNavOpen = document.documentElement.classList.contains('nav-open');
       menuToggle.setAttribute('aria-expanded', isNavOpen);
     });
@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+  // ==========================================================================
+  // Lógica para tarjetas expandibles
+  // ==========================================================================
   const featureCards = document.querySelectorAll('.caracteristica-card');
   featureCards.forEach(card => {
     card.addEventListener('click', () => {
