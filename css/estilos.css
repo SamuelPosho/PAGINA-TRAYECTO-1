@@ -223,6 +223,17 @@ html.nav-open {
   margin: 0 auto 1.25rem auto;
   animation: slideInRight 0.8s ease-out; 
 }
+.hero-image-container {
+  margin: 1.5rem auto;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+  max-width: 450px;
+}
+.hero-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radio);
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
 .hero-cta {
   display: inline-block;
 }
