@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ==========================================================================
-  // Lógica para el menú principal del sitio
-  // ==========================================================================
   const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.querySelector('.main-nav');
   if (menuToggle && mainNav) {
@@ -17,9 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  // ==========================================================================
-  // Lógica para tarjetas expandibles
-  // ==========================================================================
   const featureCards = document.querySelectorAll('.caracteristica-card');
   featureCards.forEach(card => {
     card.addEventListener('click', () => {
