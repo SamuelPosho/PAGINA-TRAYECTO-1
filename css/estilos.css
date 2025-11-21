@@ -228,6 +228,7 @@ html.nav-open {
 }
 .hero-image-container img {
   max-width: 250px;
+}
 .hero-cta {
   display: inline-block;
 }
@@ -1415,5 +1416,4 @@ body {
   opacity: 1;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-
 }
